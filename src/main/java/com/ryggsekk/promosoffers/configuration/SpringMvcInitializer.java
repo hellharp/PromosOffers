@@ -6,7 +6,7 @@ public class SpringMvcInitializer extends AbstractAnnotationConfigDispatcherServ
  
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { SpringSecTestConfiguration.class };
+        return new Class[] { PromosOffersConfiguration.class };
     }
   
     @Override

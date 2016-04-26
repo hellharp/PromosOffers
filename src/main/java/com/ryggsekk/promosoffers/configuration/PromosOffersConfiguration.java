@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.ryggsekk.promosoffers")
-public class SpringSecTestConfiguration extends WebMvcConfigurerAdapter {
+public class PromosOffersConfiguration extends WebMvcConfigurerAdapter {
      
     @Bean(name="HelloWorld")
     public ViewResolver viewResolver() {

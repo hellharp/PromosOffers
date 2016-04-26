@@ -5,7 +5,9 @@
     <title>Welcome page</title>
 </head>
 <body>
+    Test test
     Greeting : ${greeting}
     This is a welcome page.
+    Test test
 </body>
 </html>

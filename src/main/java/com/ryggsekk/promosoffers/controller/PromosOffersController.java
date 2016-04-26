@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
  
 @Controller
-public class SpringSecTestController {
+public class PromosOffersController {
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
-        model.addAttribute("greeting", "Heisann! Velkommen til våre tlbudsside!");
+        model.addAttribute("greeting", "Heisann! Velkommen til vår tilbudsside!");
         return "welcome";
     }
  

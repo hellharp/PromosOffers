@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2016 at 09:35 AM
+-- Generation Time: Apr 26, 2016 at 09:57 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -68,6 +68,22 @@ INSERT INTO `app_user_user_profile` (`user_id`, `user_profile_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `offers`
+--
+
+CREATE TABLE `offers` (
+  `id` int(20) NOT NULL,
+  `category` varchar(20) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `price` varchar(15) NOT NULL,
+  `loc_name` varchar(30) NOT NULL,
+  `loc_x` int(20) NOT NULL,
+  `loc_y` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Content storage';
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_profile`
 --
 
@@ -104,6 +120,12 @@ ALTER TABLE `app_user_user_profile`
   ADD KEY `FK_USER_PROFILE` (`user_profile_id`);
 
 --
+-- Indexes for table `offers`
+--
+ALTER TABLE `offers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_profile`
 --
 ALTER TABLE `user_profile`
@@ -119,6 +141,11 @@ ALTER TABLE `user_profile`
 --
 ALTER TABLE `app_user`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `offers`
+--
+ALTER TABLE `offers`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user_profile`
 --

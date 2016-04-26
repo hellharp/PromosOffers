@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  
 @Controller
 public class SpringSecTestController {
- 
-     
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
-        model.addAttribute("greeting", "Hi, Welcome to mysite");
+        model.addAttribute("greeting", "Heisann! Velkommen til våre tlbudsside!");
         return "welcome";
     }
  

@@ -11,6 +11,7 @@
     <br />This is a welcome page.<br />
     Test test
     
-    Login test: <a href="<c:url value="/login" />">Login</a>
+    Login test: <a href="<c:url value="/login" />">Login</a><br>
+    Offers: <a href="<c:url value="/offers" />">Offers</a>
 </body>
 </html>

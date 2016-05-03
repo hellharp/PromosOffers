@@ -12,9 +12,12 @@ import java.util.List;
 public class OfferDaoImpl extends AbstractDao<Integer, Offer> implements OfferDao {
 
     public Offer findById(int id) {
+        return getByKey(id);
+    }
+
+    public List<Offer> listOffers() {
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("id", id));
-        return (Offer) crit.uniqueResult();
+        return (List<Offer>) crit.list();
     }
 
     public List<Offer> findByName(String name) {
@@ -34,5 +37,17 @@ public class OfferDaoImpl extends AbstractDao<Integer, Offer> implements OfferDa
         crit.add(Restrictions.eq("category", category));
         crit.addOrder(order);
         return (List<Offer>) crit.list();
+    }
+
+    public void addOffer(Offer offer) {
+        persist(offer);
+    }
+
+    public void updateOffer(Offer offer) {
+        update(offer);
+    }
+
+    public void deleteOffer(Offer entity) {
+        delete(entity);
     }
 }

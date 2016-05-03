@@ -20,6 +20,10 @@ public class OfferServiceImpl implements OfferService{
         return dao.findById(id);
     }
 
+    public List<Offer> listOffers() {
+        return dao.listOffers();
+    }
+
     public List<Offer> findByName(String name) {
         return dao.findByName(name);
     }
@@ -30,5 +34,20 @@ public class OfferServiceImpl implements OfferService{
 
     public List<Offer> findByCategory(String category, Order order) {
         return dao.findByCategory(category, order);
+    }
+
+    public void addOffer(Offer offer) {
+        dao.addOffer(offer);
+    }
+
+    public void updateOffer(Offer offer) {
+        dao.updateOffer(offer);
+    }
+
+    public void deleteOffer(int id) {
+
+        Offer offer = dao.findById(id);
+
+        dao.deleteOffer(offer);
     }
 }

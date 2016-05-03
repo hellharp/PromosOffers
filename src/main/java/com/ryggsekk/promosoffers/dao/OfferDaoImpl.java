@@ -11,13 +11,25 @@ import java.util.List;
 @Repository("offerDao")
 public class OfferDaoImpl extends AbstractDao<Integer, Offer> implements OfferDao {
 
-    public List<Offer> getByCategory(String category) {
+    public Offer findById(int id) {
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("id", id));
+        return (Offer) crit.uniqueResult();
+    }
+
+    public List<Offer> findByName(String name) {
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("name", name));
+        return (List<Offer>) crit.list();
+    }
+
+    public List<Offer> findByCategory(String category) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("category", category));
         return (List<Offer>) crit.list();
     }
 
-    public List<Offer> getByCategory(String category, Order order) {
+    public List<Offer> findByCategory(String category, Order order) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("category", category));
         crit.addOrder(order);

@@ -7,9 +7,12 @@ import java.util.List;
 
 public interface OfferDao {
 
-    List<Offer> getByCategory(String category);
+    Offer findById(int id);
 
-    List<Offer> getByCategory(String category, Order order);
+    List<Offer> findByName(String name);
 
+    List<Offer> findByCategory(String category);
+
+    List<Offer> findByCategory(String category, Order order);
 
 }

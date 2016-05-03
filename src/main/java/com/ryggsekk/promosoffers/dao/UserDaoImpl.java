@@ -9,6 +9,11 @@ import com.ryggsekk.promosoffers.model.User;
 @Repository("userDao")
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
  
+    
+    public void save(User user) {
+        persist(user);
+    }
+    
     public User findById(int id) {
         return getByKey(id);
     }

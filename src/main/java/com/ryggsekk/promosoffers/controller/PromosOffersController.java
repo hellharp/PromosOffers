@@ -1,5 +1,7 @@
 package com.ryggsekk.promosoffers.controller;
  
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -128,7 +130,7 @@ public class PromosOffersController {
     public String newRegistration(ModelMap model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "newuser";
+        return "newUser";
     }
     
     /*
@@ -141,7 +143,7 @@ public class PromosOffersController {
  
         if (result.hasErrors()) {
             System.out.println("There are errors");
-            return "newuser";
+            return "newUser";
         }
         userService.save(user);
          
@@ -158,7 +160,7 @@ public class PromosOffersController {
         }
          
         model.addAttribute("success", "User " + user.getFirstName() + " has been registered successfully");
-        return "registrationsuccess";
+        return "registrationSuccess";
     }
  
     private String getPrincipal(){
@@ -171,6 +173,11 @@ public class PromosOffersController {
             userName = principal.toString();
         }
         return userName;
+    }
+    
+    @ModelAttribute("roles")
+    public List<UserProfile> initializeProfiles() {
+        return userProfileService.findAll();
     }
  
  

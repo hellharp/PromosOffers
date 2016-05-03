@@ -48,6 +48,7 @@ public class User {
     @Column(name="STATE", nullable=false)
     private String state=State.ACTIVE.getState();
  
+    @NotEmpty
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "APP_USER_USER_PROFILE", 
              joinColumns = { @JoinColumn(name = "USER_ID") }, 

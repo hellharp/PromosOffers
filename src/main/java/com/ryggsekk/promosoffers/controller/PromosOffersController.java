@@ -179,6 +179,6 @@ public class PromosOffersController {
     public List<UserProfile> initializeProfiles() {
         return userProfileService.findAll();
     }
- 
+    
  
 }

@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        if (user.getUserProfiles() == null)
+        if (user.getUserProfiles() == null || user.getUserProfiles().isEmpty())
         {
             UserProfile tmpuf = new UserProfile();
             tmpuf.setId(1);

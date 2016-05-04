@@ -2,6 +2,7 @@ package com.ryggsekk.promosoffers.util;
  
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  
+// For password encryption of the first inserted admin accounts
 public class QuickPasswordEncodingGenerator {
  
     /**

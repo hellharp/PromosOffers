@@ -8,6 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ryggsekk.promosoffers.dao.UserDao;
 import com.ryggsekk.promosoffers.model.User;
 
+import java.util.HashSet;
+import com.ryggsekk.promosoffers.model.UserProfile;
+import java.util.Set;
+
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -20,6 +24,15 @@ public class UserServiceImpl implements UserService {
 
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        if (user.getUserProfiles() == null)
+        {
+            UserProfile tmpuf = new UserProfile();
+            tmpuf.setId(1);
+            tmpuf.setType("USER");
+            Set<UserProfile> uf = new HashSet<UserProfile>();
+            uf.add(tmpuf);
+            user.setUserProfiles(uf);
+        }
         dao.save(user);
     }
 

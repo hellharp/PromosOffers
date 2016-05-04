@@ -27,6 +27,7 @@ import com.ryggsekk.promosoffers.model.User;
 import com.ryggsekk.promosoffers.model.UserProfile;
 import com.ryggsekk.promosoffers.service.UserProfileService;
 import com.ryggsekk.promosoffers.service.UserService;
+import org.hibernate.Session;
 
 @Controller
 public class PromosOffersController {
@@ -180,13 +181,7 @@ public class PromosOffersController {
         return userProfileService.findAll();
     }
     
-    // User admin
-    @RequestMapping(value = "/userAdmin", method = RequestMethod.GET)
-    public String userAdmin(ModelMap model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "userAdmin";
-    }
+    
     
     @RequestMapping(value = "/newUserAdmin", method = RequestMethod.GET)
     public String newAdminReg(ModelMap model) {
@@ -225,9 +220,19 @@ public class PromosOffersController {
         return "registrationSuccess";
     }
     
-//    public List<User> showUsers()
-//    {
-//        List<User> users = session.createCriteria(user.class).list();
+//    // User admin
+//    @RequestMapping(value = "/userAdmin", method = RequestMethod.GET)
+//    public String userAdmin(ModelMap model) {
+//        User user = new User();
+//        model.addAttribute("user", user);
+//        return "userAdmin";
 //    }
-// 
+    
+    @RequestMapping(value = "/userAdmin", method = RequestMethod.GET)
+    public String listUsers(ModelMap model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("users", this.userService.listUsers());
+        return "userAdmin";
+    }
+ 
 }

@@ -41,8 +41,9 @@ CREATE TABLE `app_user` (
 --
 
 INSERT INTO `app_user` (`id`, `sso_id`, `password`, `first_name`, `last_name`, `email`, `state`) VALUES
-(6, 'oddmm', '1T3st', 'Odd Magnus', 'Meyer', 'oddmm@outlook.com', 'Active'),
-(7, 'warlen', '2T3st', 'Arlen Syver', 'Wasserman', 'arlen@arlen.com', 'Active');
+(1, 'oddmm', '1T3st', 'Odd Magnus', 'Meyer', 'oddmm@outlook.com', 'Active'),
+(2, 'warlen', '2T3st', 'Arlen Syver', 'Wasserman', 'arlen@arlen.com', 'Active');
+(3, 'testy', 'test', 'Tester', 'Tester', 'test@test.com', 'Active');
 
 -- --------------------------------------------------------
 
@@ -60,10 +61,11 @@ CREATE TABLE `app_user_user_profile` (
 --
 
 INSERT INTO `app_user_user_profile` (`user_id`, `user_profile_id`) VALUES
-(6, 2),
-(6, 3),
-(7, 2),
-(7, 3);
+(1, 2),
+(1, 3),
+(2, 2),
+(2, 3),
+(3, 1);
 
 -- --------------------------------------------------------
 

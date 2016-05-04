@@ -14,6 +14,6 @@ public interface UserService {
      
     User findBySso(String sso);
     
-   
+    List<User> listUsers();
      
 }

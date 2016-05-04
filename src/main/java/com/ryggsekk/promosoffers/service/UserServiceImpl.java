@@ -10,6 +10,7 @@ import com.ryggsekk.promosoffers.model.User;
 
 import java.util.HashSet;
 import com.ryggsekk.promosoffers.model.UserProfile;
+import java.util.List;
 import java.util.Set;
 
 @Service("userService")
@@ -44,4 +45,8 @@ public class UserServiceImpl implements UserService {
         return dao.findBySSO(sso);
     }
 
+    public List<User> listUsers()
+    {
+        return dao.listUsers();
+    }
 }

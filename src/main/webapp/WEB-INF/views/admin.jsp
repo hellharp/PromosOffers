@@ -13,6 +13,8 @@
         <br/>
         Would you like to <a href="<c:url value='/newUserAdmin' />">Add Some Users</a> to keep yourself busy?
         <br/>
+        Or perhaps check out <a href="<c:url value="/userAdmin" />">existing users</a>?
+        <br />
         <a href="<c:url value="/logout" />">Logout</a>
     </div>
 </body>

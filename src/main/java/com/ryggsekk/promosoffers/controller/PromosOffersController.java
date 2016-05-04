@@ -134,8 +134,8 @@ public class PromosOffersController {
     }
     
     /*
-     * This method will be called on form submission, handling POST request It
-     * also validates the user input
+     * This method will be called on form submission, handling POST request.
+     * It also validates the user input.
      */
     @RequestMapping(value = "/newUser", method = RequestMethod.POST)
     public String saveRegistration(@Valid User user,
@@ -180,5 +180,54 @@ public class PromosOffersController {
         return userProfileService.findAll();
     }
     
+    // User admin
+    @RequestMapping(value = "/userAdmin", method = RequestMethod.GET)
+    public String userAdmin(ModelMap model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "userAdmin";
+    }
+    
+    @RequestMapping(value = "/newUserAdmin", method = RequestMethod.GET)
+    public String newAdminReg(ModelMap model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "newUserAdmin";
+    }
+    
+    /*
+     * This method will be called on form submission, handling POST request.
+     * It also validates the user input.
+     */
+    @RequestMapping(value = "/newUserAdmin", method = RequestMethod.POST)
+    public String saveAdminReg(@Valid User user,
+            BindingResult result, ModelMap model) {
  
+        if (result.hasErrors()) {
+            System.out.println("There are errors");
+            return "newUser";
+        }
+        userService.save(user);
+         
+        System.out.println("First Name : "+user.getFirstName());
+        System.out.println("Last Name : "+user.getLastName());
+        System.out.println("SSO ID : "+user.getSsoId());
+        System.out.println("Password : "+user.getPassword());
+        System.out.println("Email : "+user.getEmail());
+        System.out.println("Checking UsrProfiles....");
+        if(user.getUserProfiles()!=null){
+            for(UserProfile profile : user.getUserProfiles()){
+                System.out.println("Profile : "+ profile.getType());
+            }
+        }
+         
+        model.addAttribute("success", "User " + user.getFirstName() + " has been registered successfully");
+        return "registrationSuccess";
+    }
+    
+//    public List<User> showUsers()
+//    {
+//        List<User> users = session.createCriteria(user.class).list();
+//    }
+// 
 }

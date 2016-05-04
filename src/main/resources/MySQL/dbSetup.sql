@@ -44,6 +44,7 @@ INSERT INTO `app_user` (`id`, `sso_id`, `password`, `first_name`, `last_name`, `
 (1, 'oddmm', '1T3st', 'Odd Magnus', 'Meyer', 'oddmm@outlook.com', 'Active'),
 (2, 'warlen', '2T3st', 'Arlen Syver', 'Wasserman', 'arlen@arlen.com', 'Active');
 (3, 'testy', 'test', 'Tester', 'Tester', 'test@test.com', 'Active');
+(3, 'admin', 'admin', 'Admin', 'Admin', 'admin@admin.com', 'Active');
 
 -- --------------------------------------------------------
 
